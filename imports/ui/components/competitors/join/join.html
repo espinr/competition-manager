@@ -1,0 +1,32 @@
+<template name="joinCompetition">        
+    <div class="row">
+        <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">                  
+            {{#autoForm collection=competitorsCollection id="joinCompetitionForm" type="normal" validation="blur"}}
+                {{ #let bib=bibToAssign }}
+                    {{> afQuickField name='bibId' type='hidden' value=bib._id}}
+                    {{> afQuickField name='bib' type="hidden" value=bib.bib }}
+                {{ /let }}
+                {{> afQuickField name='epcs' type="hidden"}}
+                {{> afQuickField name='idRace' value=raceId type="hidden" }}
+                {{> afQuickField name='idUser' type="hidden" value=idUser }}
+                <div class="row categories-box">
+                    <p class="flow-text">{{ i18n 'races.join.categories' }}</p>
+                    <p>{{ i18n 'races.join.you_will_be' yearsOldDayCompetition }}
+                    <a href="{{pathFor 'App.editProfile' }}">{{ i18n 'races.join.profile' }}</a>.</p>
+                    <p class="flow-text">{{ i18n 'races.join.select_category' }}:</p>
+                    <div class="col s12">
+                        {{> afQuickField name='categories' options=categoryOptions type='select-checkbox-inline'}} 
+                    </div>
+                </div>
+                <div class="row">            
+                    <div class="col s12 buttons">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary add-competitor-button">{{ i18n 'races.join.button_register' }}</button>
+                            <!-- button type="reset" class="btn btn-default goBack-button">Cancel</button> -->
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>

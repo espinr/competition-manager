@@ -1,0 +1,13 @@
+<template name="opentrackClubs">  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}
+        <p class="right-align code"><a target='code' href="/data/clubs" title="See code"><i class="material-icons">code</i></a></p>
+        {{> reactiveTable 
+            class="table bordered striped clubsTable" 
+            collection=clubs 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

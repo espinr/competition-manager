@@ -1,0 +1,37 @@
+<template name="editProfileAdmin">
+  <div class="row">
+    <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">
+      <p class="flow-text">Athlete's profile:</p>
+      {{#autoForm collection=usersCollection doc=currentUser  schema=usersSchema
+            id="editProfileAdminForm" type="update" validation="submitThenBlur" trimStrings="true" removeEmptyStrings="true"}}
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" value="{{ email }}" disabled="true">
+            <label class="active">Email</label>
+          </div>
+        </div>        
+        {{> afQuickField name='profile.firstName' title='Required' }}
+        {{> afQuickField name='profile.lastName' title='Required' }}
+        {{> afQuickField name='profile.passport'  }}
+        {{> afQuickField name='profile.gender' label=(i18n 'profile.gender') firstOption=(i18n 'form.select_one') }}
+        {{> afQuickField name='profile.birthDate' type='date' label=(i18n 'profile.birth_date') }}
+
+        {{> afQuickField name='profile.countryId' }}
+        {{> afQuickField name='profile.phone' type='tel' }}
+        {{> afQuickField name='profile.locality' }}
+
+        {{> afQuickField name='profile.clubName' class='typeahead active' data-source='clubs' autocomplete='off' spellcheck='off' data-select='selectedClub'  }}
+        {{> afQuickField name='profile.clubId' type="hidden" }}
+        {{> afQuickField name='profile.name'}}
+
+        <div class="row">            
+            <div class="col s12 buttons">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary add-checkpoint-button">Update Profile</button>
+                </div>
+            </div>
+        </div>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>

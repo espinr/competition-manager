@@ -1,0 +1,49 @@
+{
+  "name": "activioty",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "lint": "eslint .",
+    "pretest": "npm run lint --silent"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.2",
+    "@mapbox/leaflet-omnivore": "^0.3.4",
+    "@xkeshi/image-compressor": "^0.5.3",
+    "animejs": "^2.2.0",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "3.0.0",
+    "bufferutil": "^3.0.5",
+    "fs": "0.0.1-security",
+    "geojson-validation": "^0.2.1",
+    "hammerjs": "^2.0.8",
+    "highlight.js": "^9.13.1",
+    "json-beautify": "^1.0.1",
+    "json2csv": "^3.11.5",
+    "jsonld": "^1.1.0",
+    "materialize-css": "^0.100.2",
+    "meteor-accounts-t9n": "^2.3.1",
+    "meteor-node-stubs": "^0.3.3",
+    "moment": "^2.22.2",
+    "mqtt": "^2.18.8",
+    "numeraljs": "^1.5.6",
+    "pdfmake": "^0.1.38",
+    "simpl-schema": "^1.4.3",
+    "sntp": "^3.0.1",
+    "utf-8-validate": "^4.0.2"
+  },
+  "devDependencies": {
+    "@meteorjs/eslint-config-meteor": "^1.0.5",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-meteor": "^0.4.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-meteor": "^4.2.2",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "eslintConfig": {
+    "extends": "@meteorjs/eslint-config-meteor"
+  }
+}

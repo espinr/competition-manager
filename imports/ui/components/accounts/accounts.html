@@ -1,0 +1,12 @@
+<template name="adminAccounts">  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}        
+        {{> reactiveTable 
+            class="table bordered striped usersTable" 
+            collection=users 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

@@ -1,0 +1,52 @@
+<template name="raceDisplayResults">    
+ 
+  {{#let race=currentRace checkpoint=currentCheckpoint resultList=currentResultList}}
+
+  <!--
+    <div class="input-field col s4">
+        <select name="category" id="select-category">
+            {{ #each category in (categories race) }}
+                <option value="{{ category._id }}">{{ #if category.recognizingAuthorityCode }}[{{ category.recognizingAuthorityCode }}]{{/if}} {{ category.name }}</option>
+            {{ /each }}
+        </select>
+        <label>Current Category</label>
+    </div>
+    <div class="col s2 count-athletes">
+        <i>{{ maxLapNumberCompleted }} laps completed</i><br>
+        <i>{{ numberAthletesFinishedOverall }} finishers</i><br>
+        <i>{{ numberAthletesStarted }} starters</i>
+    </div>
+-->
+
+<div class="imageBackground display"></div>
+  <div class="container displayResults">
+    <div class="row title">
+        <div class="col s6 center"><h1>{{ race.name }}</h1></div>
+        <div class="col s5">
+            <div class="card-panel stopwatch-small white-text black" id="stopwatch">
+                {{> stopwatchCompetition deviceId=checkpointId raceId=idRace }}
+            </div>
+        </div>
+        <div class="col s1 info"> 
+            Lap {{ maxLapNumberCompleted }}/{{ numberLaps }}
+        </div>
+    
+    </div>
+    <div class="row">
+        <div class="col s12">
+            {{> reactiveTable 
+                class="table bordered striped displayResultsTable" 
+                showNavigation="never"
+                collection=resultEntries
+                showFilter=false
+                settings=settingsTable
+                currentRace=currentRace
+                currentCheckpoint=checkpoint
+                maxLapNumberCompleted=maxLapNumberCompleted
+                firstCompetitorTimestamp=firstCompetitorTimestamp }}            
+        </div>
+    </div>
+  </div>
+  {{/let}}
+
+</template>

@@ -1,0 +1,18 @@
+<template name="opentrackSubHeader">
+    <nav class="opentrackHeader">
+        <div class="nav-wrapper">
+          {{#BackButton}}
+            <a class="goBack-button" href="{{pathFor 'opentrack.menu' }}"><i class="material-icons left">chevron_left</i></a> 
+          {{/BackButton}}          
+            <a class="brand-logo">{{ title }}</a>
+        </div>
+    </nav>
+</template>
+
+<template name="opentrackMainHeader">
+    <nav class="opentrackHeader">
+        <div class="nav-wrapper">
+            <a class="brand-logo">Open Athletics</a>
+        </div>
+    </nav>
+</template>

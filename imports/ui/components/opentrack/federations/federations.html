@@ -1,0 +1,13 @@
+<template name="opentrackFederations">  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}
+        <p class="right-align code"><a target='code' href="/data/federations" title="See code"><i class="material-icons">code</i></a></p>
+        {{> reactiveTable 
+            class="table bordered striped federationsTable" 
+            collection=federations 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

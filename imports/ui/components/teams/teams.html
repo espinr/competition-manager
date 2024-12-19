@@ -1,0 +1,18 @@
+<template name="adminTeams">  
+    <div class="fixed-action-btn" >
+        <a href="{{pathFor 'teams.new' }}/{{ raceId }}" id="newTeam-button" class="btn-floating btn-large waves-effect add-button">
+            <i class="material-icons">add</i>
+        </a>
+        
+    </div>  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}        
+        {{> reactiveTable 
+            class="table bordered striped teamsTable" 
+            collection=teams 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

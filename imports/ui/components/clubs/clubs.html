@@ -1,0 +1,17 @@
+<template name="adminClubs">  
+    <div class="fixed-action-btn" >
+        <a href="{{pathFor 'admin.clubs.new' }}" id="newClub-button" class="btn-floating add-button btn-large waves-effect waves-light">
+            <i class="material-icons">add</i>
+        </a>
+    </div>  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}        
+        {{> reactiveTable 
+            class="table bordered striped clubsTable" 
+            collection=clubs 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

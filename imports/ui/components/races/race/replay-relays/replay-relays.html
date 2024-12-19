@@ -1,0 +1,73 @@
+<template name="raceReplayRelays">    
+ 
+  {{#let race=currentRace checkpoint=currentCheckpoint resultList=currentResultList}}
+
+  <!--
+    <div class="input-field col s4">
+        <select name="category" id="select-category">
+            {{ #each category in (categories race) }}
+                <option value="{{ category._id }}">{{ #if category.recognizingAuthorityCode }}[{{ category.recognizingAuthorityCode }}]{{/if}} {{ category.name }}</option>
+            {{ /each }}
+        </select>
+        <label>Current Category</label>
+    </div>
+    <div class="col s2 count-athletes">
+        <i>{{ maxLapNumberCompleted }} laps completed</i><br>
+        <i>{{ numberAthletesFinishedOverall }} finishers</i><br>
+        <i>{{ numberAthletesStarted }} starters</i>
+    </div>
+-->
+
+<div class="imageBackground display"></div>
+<div class="container displayResults">
+        <div class="row title">
+            <div class="col s3 "></div>
+            <div class="col s6 center"><h1>{{ race.name }}</h1></div>
+            <div class="col s3 "></div>
+        </div>
+        <div class="row" style="background-color: rgba(0,0,0, 0.6)">
+                <div class="col s12">
+                        <div id="anime-demo" style="background-color: rgba(0,0,0, 0.6)">
+                            <svg
+                                width="1000"
+                                height="800"
+                                version="1.1">
+                                <path 
+                                style="fill:none;stroke:#ffffff;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                                d="m 80.809624,260.76688 632.316506,5.71834 c 0,0 170.89634,-15.24894 76.90333,-47.65296 C 696.03647,186.4282 610.58828,194.05268 610.58828,194.05268 l -461.42011,-1.90611 c 0,0 -219.316992,1.90611 -68.358546,68.62031 z"/></svg>
+                                <div class="square blue" id="team1"></div>
+                                <div class="square red" id="team2"></div>
+                                <div class="square orange" id="team3"></div>
+                                <div class="square green" id="team4"></div>
+                                <div class="square brown" id="team5"></div>
+                                <div class="square cyan" id="team6"></div>
+                                <div class="square white" id="team7"></div>
+                                <div class="square yellow" id="team8"></div>
+                                <div class="square pink" id="team9"></div>
+                                <div class="square grey" id="team10"></div>
+                                <div class="square purple" id="team11"></div>
+                                <div class="square teal" id="team12"></div>
+                        </div>
+                        
+                        <div class="color-codes" style="color:white">
+                            <p><span class="box blue"></span> RUNM</p>
+                            <p><span class="box red"></span> GIJN</p>
+                            <p><span class="box orange"></span> WOLV</p>
+                            <p><span class="box green"></span> IBAT</p>
+                            <p><span class="box brown"></span> JAVS</p>
+                            <p><span class="box cyan"></span> PILO</p>
+                            <p><span class="box white"></span> CORR</p>
+                            <p><span class="box yellow"></span> OSCU</p>
+                            <p><span class="box pink"></span> GIJB</p>
+                            <p><span class="box grey"></span> AVIL</p>
+                            <p><span class="box purple"></span> SELL</p>
+                            <p><span class="box teal"></span> TORM</p>
+                        </div>
+                </div>
+            </div>            
+    </div>
+    
+
+  {{/let}}
+
+</template>

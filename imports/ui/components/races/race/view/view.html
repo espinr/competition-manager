@@ -1,0 +1,141 @@
+<template name="raceView">
+  {{#let race=currentRace }}
+  <div id="modalJoinCompetition" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          {{> joinCompetition raceId=raceId }}
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn-flat ">{{i18n 'button.close'}}</a>
+      </div>    
+  </div>   
+
+  <div id="modalNewUserToJoin" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          {{> newProfileJoining raceId=raceId }}
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn-flat ">{{i18n 'button.cancel'}}</a>
+      </div>    
+  </div>   
+  
+  <div class="container">
+      <ul class="collapsible expandable collapsible-raceInfo">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">info</i>{{i18n 'races.view.general_info'}}</div>
+          <div class="collapsible-body">
+            {{ #if isAdminUser }}
+              ID: <strong>{{ race.identifier }}</strong><br>
+            {{ /if }}
+            <h5>{{ race.name }}</h5>
+            <div>{{ escapeHTML(race.description) }}</div>
+            <p>{{ distanceRace(race) }}</p>
+            <p>{{i18n 'races.view.location'}}: {{ race.location.name }}</p>
+            <p>{{ organizerText(race) }}</p>
+            {{ #if isAdminUser }}
+              <a href="{{ pathFor 'admin.races.edit' raceId=race._id }}" title="Edit race"><i class="material-icons">edit</i>{{i18n 'races.view.edit'}}</a>
+            {{ /if }}  
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">location_on</i>{{i18n 'races.view.location_date'}}</div>
+          <div class="collapsible-body">
+            <p>El <strong>{{ raceDate(race) }} {{i18n 'races.view.at'}} {{ raceTime(race) }}</strong></p>
+            {{i18n 'races.view.venue'}}:<br>
+            <address>
+            {{ locationRace(race) }}
+            </address>
+            {{ #if isAdminUser }}
+            <div><a href="{{ pathFor 'admin.races.edit' raceId=race._id }}" title="Edit race"><i class="material-icons">edit</i>{{i18n 'races.view.edit'}}</a></div>
+            {{ /if }} 
+          </div>
+        </li>
+        {{ #if isAdminUser }}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">location_on</i>{{i18n 'races.view.checkpoints'}}</div>
+          <div class="collapsible-body">
+            <ol>
+              {{ #each checkpoint in race.checkpoints }}
+                <li><em>{{ checkpoint.deviceId }}</em> ({{ checkpoint.laps }} {{i18n 'races.view.laps'}}) {{ #if checkpoint.onFinishLine }} – {{i18n 'races.view.finish_line'}}{{/if}}</li>
+              {{ /each }}
+            </ol>
+            <a href="{{ pathFor 'admin.checkpoints.map' raceId=race._id }}" title="Checkpoints"><i class="material-icons">edit_location</i>{{i18n 'races.view.edit'}}</a>
+          </div>
+        </li>
+        {{/if}}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">group</i>{{i18n 'races.view.categories'}}</div>
+          <div class="collapsible-body">
+            <ul>
+              {{ #each category in (categories race) }}
+                <li>{{ category.name }}</li>
+              {{ /each }}
+            </ul>
+            {{ #if raceNotStartedYet race }}
+              {{ #if isAdminUser }}
+              <a href="{{ pathFor 'admin.races.edit' raceId=race._id }}" title="Edit race"><i class="material-icons">edit</i>{{i18n 'races.view.edit'}}</a>
+              {{ /if }}  
+            {{ /if }}
+          </div>
+        </li>
+      {{ #unless raceFinished race }}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">playlist_add_check</i>{{i18n 'races.view.sign_up'}}</div>
+          <div class="collapsible-body">
+            <p><strong>{{ registriesStartingList }}</strong> {{i18n 'races.view.athletes_in_race'}}</p>
+            {{ #if isAdminUser }}
+              <p><a class="waves-effect waves-light btn-small" id="new-user-register-button"><i class="material-icons left">add_circle</i> Inscribir Atletas</a></p>
+            {{ else }}              
+              {{ #if isRegistrationOpen race }}
+                {{ #if mayRegister }}
+                  <p><a class="waves-effect waves-light btn-small" id="join-competition"><i class="material-icons left">add_circle</i>{{i18n 'races.view.join'}}</a></p>
+                {{ else }}
+                  {{ #if alreadyRegistered }}
+                    <p><strong>{{i18n 'races.view.you_are_registered'}}</strong></p>
+                  {{ /if }}
+                    <p><a href="#!" id="new-user-register-button" class="waves-effect waves-light btn-small" ><i class="material-icons left">add_circle</i>
+                      {{ #if alreadyRegistered }}
+                        {{i18n 'races.view.create_user_join_more'}}
+                      {{ else }}
+                        {{i18n 'races.view.create_user_join'}}
+                      {{ /if }}
+                      </a></p>
+                {{ /if }}
+              {{ else }}
+                {{i18n 'races.view.registration_closed'}}
+              {{ /if }}
+            {{ /if }}
+            {{ #if isRacePrivate race }}
+              {{ #if isAdminUser }}
+                <p><a href="{{ pathFor 'races.startingList' raceId=race._id }}"><i class="material-icons left">format_list_bulleted</i>{{i18n 'races.view.starting_list'}}</a></p>
+              {{ /if }}
+            {{ else }}
+              <p><a href="{{ pathFor 'races.startingList' raceId=race._id }}"><i class="material-icons left">format_list_bulleted</i>{{i18n 'races.view.starting_list'}}</a></p>
+            {{ /if }}
+          </div>
+        </li>
+      {{ /unless }}
+        <li>
+          <div class="collapsible-header"><i class="material-icons">format_list_numbered</i>{{i18n 'races.view.results'}}</div>
+          <div class="collapsible-body">
+            {{ #if raceNotStartedYet race }}
+              <p>{{i18n 'races.view.results_when_starts'}}</p>
+            {{ else }}
+              {{ #if isRelayRace race }}
+                  <p><a href="{{ pathFor 'races.relayResults' raceId=race._id checkpointId=(finishCheckpointId race) }}" ><i class="material-icons left">format_list_numbered</i> {{i18n 'races.view.results'}}</a></p>
+                  <p><a href="{{ pathFor 'races.displayRelays' raceId=race._id checkpointId=(finishCheckpointId race) }}" title="Display"><i class="material-icons left">live_tv</i> {{i18n 'races.view.live_results'}}</a></p>
+              {{ else }}
+                  <p><a href="{{ pathFor 'races.results' raceId=race._id checkpointId=(finishCheckpointId race) }}" ><i class="material-icons left">format_list_numbered</i> {{i18n 'races.view.results'}}</a></p>
+                {{ #if isTeamsRace race }}
+                  <p><a href="{{ pathFor 'races.teamResults' raceId=race._id checkpointId=(finishCheckpointId race) }}" ><i class="material-icons left">format_list_numbered</i> {{i18n 'races.view.results_teams'}}</a></p>
+                {{ /if }}                
+                  <p><a href="{{ pathFor 'races.display' raceId=race._id checkpointId=(finishCheckpointId race) }}" title="Display"><i class="material-icons left">live_tv</i> {{i18n 'races.view.live_results'}}</a></p>
+              {{ /if }}        
+            {{ /if }}
+          </div>
+        </li>
+      </ul>
+  </div>
+  {{/let}}
+
+  {{> raceViewMap raceId=raceId currentRace=currentRace }}
+</template>

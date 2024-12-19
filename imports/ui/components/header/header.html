@@ -1,0 +1,49 @@
+<template name="mainNav">
+  <div class="nav-wrapper">
+    <a href="{{ pathFor 'App.home' }}" class="brand-logo"><img src="/img/pbest/logo_pbest_pink.png" alt="pBest"></a>
+    <a href="#" data-activates="menuMobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <!-- Drop-down menu for profile in full mode -->
+    <ul id="dropdownProfile" class="dropdown-content">
+      <li><a href="{{ pathFor 'App.editProfile' }}" id="editProfileButton">{{i18n 'nav.my_profile'}}</a></li>
+      <li><a href="#!" id="changePasswordButton">{{i18n 'nav.change_password'}}</a></li>
+      <li class="divider"></li>
+      <li><a href="#!" id="logoutButton">{{i18n 'nav.logout'}}</a></li>
+    </ul>   
+    <ul id="menuMobile" class="side-nav">
+      <li class="black-text"><a href="#" id="closeMenuButton"><i class="material-icons large">chevron_left</i></a></li>
+      <li class="{{isActiveRoute 'races.dashboard'}}"><a href="{{pathFor 'races.dashboard' }}">{{i18n 'nav.races'}}</a></li>
+      <li class="{{isActiveRoute 'opentrack.menu'}}"><a href="{{pathFor 'opentrack.menu' }}">{{i18n 'nav.opentrack'}}</a></li>
+      {{#if isInRole 'admin'}}
+        <li class="{{isActiveRoute 'admin.categories'}}"><a href="{{pathFor 'admin.categories' }}">{{i18n 'nav.categories'}}</a></li>
+        <li class="{{isActiveRoute 'admin.users'}}"><a href="{{pathFor 'admin.users' }}">{{i18n 'nav.athletes'}}</a></li>
+        <li class="{{isActiveRoute 'admin.clubs'}}"><a href="{{pathFor 'admin.clubs' }}">{{i18n 'nav.clubs'}}</a></li>
+      {{/if}}
+      <li><a href="#!" class="contact-modal-button">{{i18n 'nav.contact'}}</a></li>
+      <li class="divider"></li>
+      {{ #if isLoggedUser }}
+        <li><a href="{{ pathFor 'App.editProfile' }}" id="editProfileButton">{{i18n 'nav.my_profile'}}</a></li>
+        <li><a href="#!" id="changePasswordButton">{{i18n 'nav.change_password'}}</a></li>
+        <li><a href="#!" id="logoutButton">{{i18n 'nav.logout'}}</a></li>
+      {{ else }}
+        <!-- li><a class="dropdown-button" href="{{pathFor 'App.login' }}">{{i18n 'nav.login'}}</a></li -->
+      {{ /if }}
+    </ul>
+    <!-- Menu in full mode -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li class="{{isActiveRoute 'races.dashboard'}}"><a href="{{pathFor 'races.dashboard' }}">{{i18n 'nav.races'}}</a></li>
+      <li class="{{isActiveRoute 'opentrack.menu'}}"><a href="{{pathFor 'opentrack.menu' }}">{{i18n 'nav.opentrack'}}</a></li>      
+      {{#if isInRole 'admin'}}
+        <li class="{{isActiveRoute 'admin.categories'}}"><a href="{{pathFor 'admin.categories' }}">{{i18n 'nav.categories'}}</a></li>
+        <li class="{{isActiveRoute 'admin.users'}}"><a href="{{pathFor 'admin.users' }}">{{i18n 'nav.athletes'}}</a></li>
+        <li class="{{isActiveRoute 'admin.clubs'}}"><a href="{{pathFor 'admin.clubs' }}">{{i18n 'nav.clubs'}}</a></li>
+      {{/if}}
+      <li><a href="#!" class="contact-modal-button">{{i18n 'nav.contact'}}</a></li>
+      {{ #if isLoggedUser }}
+        <li><a class="dropdown-button" href="#!" data-activates="dropdownProfile">{{ username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      {{ else }}
+        <!-- li><a class="dropdown-button" href="{{pathFor 'App.login' }}">{{i18n 'nav.login'}}</a></li> -->
+      {{ /if }}
+    </ul>
+  </div>
+</template>

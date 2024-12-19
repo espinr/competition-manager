@@ -1,0 +1,102 @@
+<template name="newClub">
+        <div class="row">
+        <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">                  
+            {{#autoForm collection=clubsCollection id="newClubForm" type="normal" validation="blur" currentFlag=currentFlag }}
+
+            <p><br> </p>
+
+            {{> afQuickField name='identifier' type='hidden' }}
+
+            <div class="row">
+                <div class="col s8">
+                    {{> afQuickField name='name' label='Label in English' }}
+                </div>
+                <div class="col s4">
+                    {{> afQuickField name='alternate' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s8">
+                    {{> afQuickField name='localName' }}
+                </div>
+                <div class="col s4">
+                    {{> afQuickField name='localLanguage' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    {{> afQuickField name='url'}}
+                </div>
+                <div class="col s12">
+                    {{> afQuickField name='countryId'}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <label class="active">Flag:</label>
+                    <div class="row">
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <select class="icons" id="flagTypeSelector" name="flagType">
+                                        {{ #each flagType in optionsFlagTypes }}
+                                            <option value="{{flagType.id}}" data-icon="{{flagType.src}}" name="flagType" {{flagType.selected}} >{{flagType.id}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <label>Type</label>
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <select class="icons" id="iconSelector" name="icons">
+                                        <option value="" data-icon="" name="icons">(None)</option>
+                                        {{ #each icon in optionsLogoLayout }}
+                                            <option value="{{icon.id}}" data-icon="{{icon.svg}}" name="icons">{{icon.id}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <label>Icon</label>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="placeholder" id="logo-preview">
+                                        {{currentFlag}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <input type="color" id="baseColor" name="baseColor" value="#000000" />
+                                    <label class="active">Color 1</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <input type="color" id="secondColor" name="secondColor" value="#505050" />
+                                    <label class="active">Color 2</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <input type="color" id="iconColor" name="iconColor" value="#ffffff" />
+                                    <label class="active">Icon</label>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{> afQuickField name='logo' type='hidden'}}    
+
+                <div class="row">            
+                    <div class="col s12 buttons">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary add-race-button">Add</button>
+                            <button type="reset" class="btn btn-default goBack-button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+     </div>
+    </template>

@@ -1,0 +1,58 @@
+<template name="raceStartingList">    
+
+  {{#let race=currentRace }}
+
+  {{ #if isAdminUser }}
+    <div class="fixed-action-btn" >
+        <a href="{{pathFor 'admin.competitors.new' raceId=race._id }}" id="newCompetitor-button" class="btn-floating btn-large waves-effect waves-light add-button">
+            <i class="material-icons">add</i>
+        </a>
+    </div>  
+  {{ /if }}
+
+  <div class="container">
+      <ul class="collapsible expandable collapsible-raceInfo">
+        <li>
+        <div class="collapsible-header"><i class="material-icons">info</i>{{i18n 'races.view.general_info'}}</div>
+        <div class="collapsible-body">
+            {{ #if isAdminUser }}
+              ID: <strong>{{ race.identifier }}</strong><br>
+            {{ /if }}
+            <h5>{{ race.name }}</h5>
+            <div>{{ escapeHTML(race.description) }}</div>
+            <p>{{ distanceRace(race) }}</p>
+            <p>{{i18n 'races.view.location'}}: {{ race.location.name }}</p>
+            <p>{{ organizerText(race) }}</p>
+            {{ #if isAdminUser }}
+              <a href="{{ pathFor 'admin.races.edit' raceId=race._id }}" title="Edit race"><i class="material-icons">edit</i>{{i18n 'races.view.edit'}}</a>
+            {{ /if }}  
+          </div>
+        </li>
+      </ul>
+  </div>
+    <div class="row">
+        <div class="col s2"></div>
+        <div class="input-field col s4">
+            <select name="category" id="select-category">
+                {{ #each category in (categories race) }}
+                    <option value="{{ category._id }}">{{ #if category.recognizingAuthorityCode }}[{{ category.recognizingAuthorityCode }}]{{/if}} {{ category.name }}</option>
+                {{ /each }}
+            </select>
+            <label>{{i18n 'races.view.current_category'}}</label>
+        </div>
+        <div class="col s4 count-athletes">
+            <i>{{ currentRegistries }} {{i18n 'races.view.athletes'}}</i><br>
+            <a href="#" title="Print" id="print-button"><i class="material-icons">print</i>{{i18n 'races.view.print'}}</a>
+        </div>
+        <div class="col s4"></div>
+    </div>
+
+        {{> reactiveTable 
+        class="table bordered striped startingListTable" 
+        collection=(competitors race)
+        showFilter=true
+        settings=settingsTable }}
+
+
+  {{/let}}
+</template>

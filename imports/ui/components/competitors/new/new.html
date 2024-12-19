@@ -1,0 +1,76 @@
+<template name="newCompetitor">
+
+        <div id="modalNewUser" class="modal modal-fixed-footer">
+            {{#autoForm collection=usersCollection id="newUserCompetitorForm" type="normal" validation="blur"}}
+            <div class="modal-content">
+                <h4>New Athlete</h4>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            {{> afQuickField name='profile.firstName' }}
+                        </div>
+                        <div class="input-field col s8">
+                            {{> afQuickField name='profile.lastName' }}
+                        </div>
+                    </div>    
+                    {{> afQuickField name='emails.1.address' }}
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{> afQuickField name='profile.gender' }}
+                        </div>
+                        <div class="input-field col s6">
+                            {{> afQuickField name='profile.birthDate' type='date' }}
+                        </div>
+                    </div>
+                    {{> afQuickField name='profile.acceptPolicy' value=true type="hidden" }}
+            </div>
+            <div class="modal-footer">
+                <div class="form-group">
+                    <button type="submit" class="modal-action modal-ok btn-flat">Add</button> 
+                    <button type="reset" class="modal-action modal-close btn-flat ">Cancel</button>
+                </div>
+            </div>    
+            {{/autoForm}}
+        </div>   
+        
+        <div class="row">
+        <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">                  
+            {{#autoForm collection=competitorsCollection id="newCompetitorForm" type="normal" validation="blur"}}
+                <p class="flow-text">Athlete:</p>
+
+                <div class="row">
+                    <div class="col s12">
+                        {{> afQuickField name='bibId' type='select' options=bibValuesOptions }}
+                    </div>
+                </div>
+
+                {{> afQuickField name='bib' type="hidden"}}
+                {{> afQuickField name='epcs' type="hidden"}}
+
+                {{> afQuickField name='idRace' value=raceId type="hidden" }}
+                <div class="row">
+                    <div class="col s10">
+                        {{> afQuickField name='idUser' options=userList type="select" }}
+                    </div>
+                    <div class="col s2">
+                        <a id="newUser-button" class="btn-floating"><i class="material-icons">person_add</i></a>
+                    </div>
+                </div>
+    
+                <div class="row categories-box">
+                    <div class="col s12">
+                        {{> afQuickField name='categories' options=categoryOptions type='select-checkbox-inline'}} 
+                    </div>
+                </div>
+                <div class="row">            
+                    <div class="col s12 buttons">
+                        <div class="form-group">
+                            <a id="autoAssign-button" class="btn-floating"><i class="material-icons">sync</i></a>
+                            <button type="submit" class="btn btn-primary add-competitor-button">Add</button>
+                            <button type="reset" class="btn btn-default goBack-button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+        </div>
+    </template>

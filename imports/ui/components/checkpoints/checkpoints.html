@@ -1,0 +1,6 @@
+<template name="checkpointsMain">  
+  {{> checkpointsMap raceId=raceId }}
+  {{ #if loading }}
+    {{> spinner }}
+  {{ /if }}
+</template>

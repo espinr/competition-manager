@@ -1,0 +1,13 @@
+<template name="opentrackRaces">  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}
+        <p class="right-align code"><a target='code' href="/data/competitions" title="See code"><i class="material-icons">code</i></a></p>
+        {{> reactiveTable 
+            class="table bordered striped racesTable" 
+            collection=races 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

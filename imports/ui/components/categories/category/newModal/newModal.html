@@ -1,0 +1,48 @@
+<template name="newCategoryModal">
+    {{#autoForm collection=categoriesCollection id="newCategoryFormModal" raceId=raceId type="normal" validation="blur" }}
+    <div class="modal-content">
+        <h4>New Category</h4>
+        <div class="row">
+            <div class="col s8">
+                {{> afQuickField name='name' label='Label in English' }}
+            </div>
+            <div class="col s4">
+                {{> afQuickField name='identifier' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{> afQuickField name='description'}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{> afQuickField name='autoAssigned'}}
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col s4">
+                {{> afQuickField name='requiredGender'}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4">
+                {{> afQuickField name='requiredMinAge'}}
+            </div>
+            <div class="col s4">
+                {{> afQuickField name='requiredMaxAge'}}
+            </div>
+            <div class="col s4">
+                {{> afQuickField name='referenceDate'}}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="form-group">
+            <button type="submit" class="modal-action modal-ok btn-flat">Add</button> 
+            <button type="reset" class="modal-action modal-close btn-flat ">Cancel</button>
+        </div>
+    </div>    
+    {{/autoForm}}
+</template>

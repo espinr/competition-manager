@@ -1,0 +1,20 @@
+<template name="racesMain">  
+        {{ #if loading }}
+            {{> spinner }}
+            {{ else }}
+            {{> reactiveTable 
+                class="table bordered striped racesTable" 
+                collection=races  
+                showFilter=true
+                settings=settings }}
+        {{ /if }}
+</template>
+      
+<template name="racesNav">
+    <div class="fixed-action-btn" >
+    <a href="{{pathFor 'admin.races.new' }}" id="newRace-button" class="btn-floating btn-large waves-effect add-button">
+        <i class="material-icons">add</i>
+    </a>
+    </div>  
+    {{> mainNav }} 
+</template>

@@ -1,0 +1,58 @@
+<template name="editProfile">
+  <div class="row">
+    <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">
+      <p class="flow-text">About you:</p>
+      {{#autoForm collection=usersCollection doc=currentUser  schema=usersSchema
+            id="editProfileForm" type="update" validation="submitThenBlur" trimStrings="true" removeEmptyStrings="true"}}
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" value="{{ email }}" disabled="true">
+            <label class="active">Email</label>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="input-field col s4">
+            {{> afQuickField name='profile.firstName' title='Campo obligatorio' }}
+          </div>
+          <div class="input-field col s8">
+            {{> afQuickField name='profile.lastName' title='Required' }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+              {{> afQuickField name='profile.gender' }}
+          </div>
+          <div class="input-field col s6">
+              {{> afQuickField name='profile.birthDate' type='date' }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            {{> afQuickField name='profile.countryId' }}
+          </div>
+          <div class="input-field col s6">
+            {{> afQuickField name='profile.passport'  }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            {{> afQuickField name='profile.phone' type='tel' }}
+          </div>
+          <div class="input-field col s6">
+            {{> afQuickField name='profile.locality' }}
+          </div>
+        </div>
+        {{> afQuickField name='profile.clubName' class='typeahead active' data-source='clubs' autocomplete='off' spellcheck='off' data-select='selectedClub'  }}
+        {{> afQuickField name='profile.clubId' type="hidden" }}
+        {{> afQuickField name='profile.name'}}
+        <div class="row">            
+            <div class="col s12 buttons">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary add-checkpoint-button">Update profile</button>
+                </div>
+            </div>
+        </div>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>

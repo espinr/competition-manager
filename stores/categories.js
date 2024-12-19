@@ -1,0 +1,601 @@
+
+/* Collection of categories by default and those recognized by IAAF */
+export const categories = [
+{
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'OPEN',
+    name: 'Open (Male + Female)',
+    description: 'Open to all athletes'
+  },
+{
+    global: true,
+    referenceDate: '--1231',
+    requiredGender: 'Male',
+    identifier: 'MOPEN',
+    name: 'Open Male',
+    description: 'Open to boys and men of all ages'
+  },
+{
+    global: true,
+    referenceDate: '--1231',
+    requiredGender: 'Female',
+    identifier: 'WOPEN',
+    name: 'Open Female',
+    description: 'Open to girls and women of all ages'
+  },
+{
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U18',
+    name: 'Under 18',
+    description: 'Both male and female athletes of age in between 16 and 17 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '16',
+    requiredMaxAge: '17'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U20',
+    name: 'Under 20',
+    description: 'Both male and female athletes of age in between 18 and 19 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '18',
+    requiredMaxAge: '19'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U23',
+    name: 'Under 23',
+    description: 'Both male and female athletes of age in between 20 and 22 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '20',
+    requiredMaxAge: '22'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'SEN',
+    name: 'SEN',
+    description: 'Both male and female athletes of age in between 23 and 34 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '23',
+    requiredMaxAge: '34'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V35',
+    name: 'Master 35',
+    description: 'Both male and female athletes of age in between 35 and 39 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '35',
+    requiredMaxAge: '39'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V40',
+    name: 'Master 40',
+    description: 'Both male and female athletes of age in between 40 and 44 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '40',
+    requiredMaxAge: '44'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V45',
+    name: 'Master 45',
+    description: 'Both male and female athletes of age in between 45 and 49 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '45',
+    requiredMaxAge: '49'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V50',
+    name: 'Master 50',
+    description: 'Both male and female athletes of age in between 50 and 54 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '50',
+    requiredMaxAge: '54'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V55',
+    name: 'Master 55',
+    description: 'Both male and female athletes of age in between 55 and 59 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '55',
+    requiredMaxAge: '59'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V60',
+    name: 'Master 60',
+    description: 'Both male and female athletes of age in between 60 and 64 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '60',
+    requiredMaxAge: '64'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V65',
+    name: 'Master 65',
+    description: 'Both male and female athletes of age in between 65 and 69 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '65',
+    requiredMaxAge: '69'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V70',
+    name: 'Master 70',
+    description: 'Both male and female athletes of age in between 70 and 74 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '70',
+    requiredMaxAge: '74'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V75',
+    name: 'Master 75',
+    description: 'Both male and female athletes of age in between 75 and 79 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '75',
+    requiredMaxAge: '79'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V80',
+    name: 'Master 80',
+    description: 'Both male and female athletes of age in between 80 and 84 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '80',
+    requiredMaxAge: '84'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V85',
+    name: 'Master 85',
+    description: 'Both male and female athletes of age in between 85 and 89 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '85',
+    requiredMaxAge: '89'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V90',
+    name: 'Master 90',
+    description: 'Both male and female athletes of age in between 90 and 94 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '90',
+    requiredMaxAge: '94'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V95',
+    name: 'Master 95',
+    description: 'Both male and female athletes of age in between 95 and 99 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '95',
+    requiredMaxAge: '99'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'V100+',
+    name: 'Master 100+',
+    description: 'Both male and female athletes of over 100 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredMinAge: '100',
+    requiredMaxAge: ''
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U18M',
+    name: 'Male Under 18',
+    description: 'Male athletes of age in between 16 and 17 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '16',
+    requiredMaxAge: '17'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U20M',
+    name: 'Male Under 20',
+    description: 'Male athletes of age in between 18 and 19 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '18',
+    requiredMaxAge: '19'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U23M',
+    name: 'Male Under 23',
+    description: 'Male athletes of age in between 20 and 22 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '20',
+    requiredMaxAge: '22'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'SENM',
+    name: 'Senior Male',
+    description: 'Male athletes of age in between 23 and 34 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '23',
+    requiredMaxAge: '34'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M35',
+    name: 'Male Master 35',
+    description: 'Male athletes of age in between 35 and 39 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '35',
+    requiredMaxAge: '39'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M40',
+    name: 'Male Master 40',
+    description: 'Male athletes of age in between 40 and 44 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '40',
+    requiredMaxAge: '44'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M45',
+    name: 'Male Master 45',
+    description: 'Male athletes of age in between 45 and 49 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '45',
+    requiredMaxAge: '49'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M50',
+    name: 'Male Master 50',
+    description: 'Male athletes of age in between 50 and 54 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '50',
+    requiredMaxAge: '54'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M55',
+    name: 'Male Master 55',
+    description: 'Male athletes of age in between 55 and 59 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '55',
+    requiredMaxAge: '59'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M60',
+    name: 'Male Master 60',
+    description: 'Male athletes of age in between 60 and 64 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '60',
+    requiredMaxAge: '64'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M65',
+    name: 'Male Master 65',
+    description: 'Male athletes of age in between 65 and 69 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '65',
+    requiredMaxAge: '69'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M70',
+    name: 'Male Master 70',
+    description: 'Male athletes of age in between 70 and 74 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '70',
+    requiredMaxAge: '74'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M75',
+    name: 'Male Master 75',
+    description: 'Male athletes of age in between 75 and 79 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '75',
+    requiredMaxAge: '79'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M80',
+    name: 'Male Master 80',
+    description: 'Male athletes of age in between 80 and 84 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '80',
+    requiredMaxAge: '84'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M85',
+    name: 'Male Master 85',
+    description: 'Male athletes of age in between 85 and 89 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '85',
+    requiredMaxAge: '89'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M90',
+    name: 'Male Master 90',
+    description: 'Male athletes of age in between 90 and 94 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '90',
+    requiredMaxAge: '94'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M95',
+    name: 'Male Master 95',
+    description: 'Male athletes of age in between 95 and 99 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '95',
+    requiredMaxAge: '99'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'M100',
+    name: 'Male Master 100+',
+    description: 'Male athletes of age in between 100 and  (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Male',
+    requiredMinAge: '100'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U18F',
+    name: 'Female Under 18',
+    description: 'Female athletes of age in between 16 and 17 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '16',
+    requiredMaxAge: '17'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U20F',
+    name: 'Female Under 20',
+    description: 'Female athletes of age in between 18 and 19 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '18',
+    requiredMaxAge: '19'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'U23F',
+    name: 'Female Under 23',
+    description: 'Female athletes of age in between 20 and 22 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '20',
+    requiredMaxAge: '22'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'SENF',
+    name: 'Senior Female',
+    description: 'Female athletes of age in between 23 and 34 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '23',
+    requiredMaxAge: '34'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W35',
+    name: 'Female Master 35',
+    description: 'Female athletes of age in between 35 and 39 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '35',
+    requiredMaxAge: '39'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W40',
+    name: 'Female Master 40',
+    description: 'Female athletes of age in between 40 and 44 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '40',
+    requiredMaxAge: '44'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W45',
+    name: 'Female Master 45',
+    description: 'Female athletes of age in between 45 and 49 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '45',
+    requiredMaxAge: '49'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W50',
+    name: 'Female Master 50',
+    description: 'Female athletes of age in between 50 and 54 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '50',
+    requiredMaxAge: '54'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W55',
+    name: 'Female Master 55',
+    description: 'Female athletes of age in between 55 and 59 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '55',
+    requiredMaxAge: '59'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W60',
+    name: 'Female Master 60',
+    description: 'Female athletes of age in between 60 and 64 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '60',
+    requiredMaxAge: '64'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W65',
+    name: 'Female Master 65',
+    description: 'Female athletes of age in between 65 and 69 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '65',
+    requiredMaxAge: '69'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W70',
+    name: 'Female Master 70',
+    description: 'Female athletes of age in between 70 and 74 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '70',
+    requiredMaxAge: '74'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W75',
+    name: 'Female Master 75',
+    description: 'Female athletes of age in between 75 and 79 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '75',
+    requiredMaxAge: '79'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W80',
+    name: 'Female Master 80',
+    description: 'Female athletes of age in between 80 and 84 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '80',
+    requiredMaxAge: '84'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W85',
+    name: 'Female Master 85',
+    description: 'Female athletes of age in between 85 and 89 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '85',
+    requiredMaxAge: '89'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W90',
+    name: 'Female Master 90',
+    description: 'Female athletes of age in between 90 and 94 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '90',
+    requiredMaxAge: '94'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W95',
+    name: 'Female Master 95',
+    description: 'Female athletes of age in between 95 and 99 (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '95',
+    requiredMaxAge: '99'
+    },
+  {
+    global: true,
+    referenceDate: '--1231',
+    identifier: 'W100',
+    name: 'Female Master 100+',
+    description: 'Female athletes of age in between 100 and  (included), on 31th December in the year of the competition',
+    recognizingAuthorityCode: 'IAAF',
+    requiredGender: 'Female',
+    requiredMinAge: '100'
+    }
+];

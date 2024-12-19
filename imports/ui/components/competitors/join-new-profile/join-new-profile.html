@@ -1,0 +1,129 @@
+<template name="newProfileJoining">
+  <div class="row">
+    <div class="col form s12 z-depth-1">
+      <p class="flow-text">{{i18n 'profile.create_to_continue'}}</p>
+      {{#autoForm collection=usersCollection id="newProfileJoiningForm" raceId=raceId type="normal" validation="blur" trimStrings="true" removeEmptyStrings="true"}}
+        <div class="row">
+          <div class="input-field col s12">
+            {{> afQuickField name='profile.contactEmail' label=(i18n 'profile.phone_contact')}}
+            {{#if fieldIsInvalid 'profile.contactEmail' }}
+            <div class="row rowError">
+              <div class="col s12">
+                <span class="red-text">{{ keyErrorMessage 'profile.contactEmail' }}</span>
+              </div>
+            </div>        
+            {{/if}}    
+          </div>
+        </div>  
+        <div class="row">
+          <div class="input-field col s12">
+            {{> afQuickField name='profile.firstName' title=(i18n 'form.mandatory') label=(i18n 'profile.first_name') }}
+            {{#if fieldIsInvalid 'profile.firstName' }}
+            <div class="row rowError">            
+              <div class="col s12">
+                <span class="red-text">{{ keyErrorMessage 'profile.firstName' }}</span>
+              </div>
+            </div>        
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {{> afQuickField name='profile.lastName' title=(i18n 'form.mandatory') label=(i18n 'profile.last_name') }}
+            {{#if fieldIsInvalid 'profile.lastName' }}
+            <div class="row rowError">            
+              <div class="col s12">
+                <span class="red-text">{{ keyErrorMessage 'profile.lastName' }}</span>
+              </div>
+            </div>        
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 l6 xl6">
+              {{> afQuickField name='profile.gender' label=(i18n 'profile.gender') firstOption=(i18n 'form.select_one') }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 l6 xl6">
+              {{> afQuickField name='profile.birthDate' type='date' label=(i18n 'profile.birth_date') }}
+              {{#if fieldIsInvalid 'profile.birthDate' }}
+              <div class="row rowError">            
+                <div class="col s12">
+                  <span class="red-text">{{ keyErrorMessage 'profile.birthDate' }}</span>
+                </div>
+              </div>        
+              {{/if}}    
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 l6 xl6">
+            {{> afQuickField name='profile.countryId' label=(i18n 'profile.country') value=countryByDefault }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {{> afQuickField name='profile.locality' label=(i18n 'profile.locality')}}
+            {{#if fieldIsInvalid 'profile.locality' }}
+            <div class="row rowError">            
+              <div class="col s12">
+                <span class="red-text">{{ keyErrorMessage 'profile.locality' }}</span>
+              </div>
+            </div>        
+            {{/if}}    
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            {{> afQuickField name='profile.clubName' class='typeahead club-select active' data-source='clubs' autocomplete='off' spellcheck='off' data-select='selectedClub' label=' ' }}
+            {{#if fieldIsInvalid 'profile.clubName' }}
+            <div class="row rowError">            
+              <div class="col s12 l6 xl6">
+                <span class="red-text">{{ keyErrorMessage 'profile.clubName' }}</span>
+              </div>
+            </div>
+            {{/if}}
+            <label class="active">
+              {{i18n 'profile.club'}}
+            </label>
+          </div>
+        </div>
+        {{> afQuickField name='profile.clubId' type="hidden" }}
+        {{> afQuickField name='profile.name'}}
+        <div class="row">            
+          <div class="col s12 privacy-policy">
+            <span class="help-block">{{i18n 'profile.text_privacy'}}
+              <a class="privacyPolicy modal-trigger" data-target="modalPrivacyPolicy" href="#modalPrivacyPolicy">{{i18n 'profile.privacy_policy'}}</a>.</span>
+          </div>
+        </div>
+        <div class="row">            
+          <div class="col s12">
+            {{> afQuickField name='profile.acceptPolicy' type='boolean-checkbox' title=(i18n 'form.mandatory') label=(i18n 'profile.i_accept') }}
+            {{#if fieldIsInvalid 'profile.acceptPolicy' }}
+            <div class="row rowError">            
+              <div class="col s12">
+                <span class="red-text">{{ i18n 'profile.error_privacy' }}</span>
+              </div>
+            </div>
+          {{/if}}  
+          </div>          
+        </div>
+        <div class="row">            
+            <div class="col s12 buttons">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary add-checkpoint-button">{{i18n 'button.continue'}}</button>
+                </div>
+            </div>
+        </div>
+      {{/autoForm}}
+    </div>
+  </div>
+  <div id="modalPrivacyPolicy" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      {{> privacyPolicy }}
+    </div>
+    <div class="modal-footer">
+      <a href="#!" id="close-privacy-policy" class="modal-action btn-flat ">{{i18n 'button.close'}}</a>
+    </div>    
+  </div>    
+</template>

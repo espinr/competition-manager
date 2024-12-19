@@ -1,0 +1,26 @@
+<template name="opentrackDisciplines">  
+    {{ #if loading }}
+        {{> spinner }}
+    {{ else }}
+    <p class="right-align code"><a target='code' href="/data/disciplines" title="See code"><i class="material-icons">code</i></a></p>
+    <div class="row">
+        <div class="col s12">
+          <ul class="tabs">
+            {{ #each type in disciplineTypes }}
+              <li class="tab col s2"><a href="#tab_{{type.index}}">{{ type.type }}</a></li>
+            {{ /each }}
+          </ul>
+        </div>
+        {{ #each type in disciplineTypes }}
+            <div id="tab_{{type.index}}" class="col s12">
+                {{> reactiveTable 
+                    class="table bordered striped disciplinesTable" 
+                    collection=(disciplines type.type)
+                    showNavigation='auto' 
+                    showFilter=true
+                    settings=settings }}    
+            </div>
+        {{ /each }}
+    </div>
+    {{ /if }}
+</template>

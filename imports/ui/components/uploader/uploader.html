@@ -1,0 +1,63 @@
+<template name="uploader">
+    <div class="row uploader">
+        <div class="col s7 editor">
+            <pre id="editor" contenteditable="true"><code>
+[                
+{
+  "@context" : "http://w3c.github.io/opentrack-cg/contexts/opentrack.jsonld",
+  "@id" : "http://w3c.github.io/opentrack-cg/examples/athlete/001Farah.jsonld",
+  "@type" : "Athlete",
+  "name" : "Mohamed Muktar Jama Farah",
+  "familyName" : "Farah",
+  "givenName" : "Mohamed Muktar Jama",
+  "alternateName" : "Mo Farah",
+  "url" : "http://www.mofarah.com",
+  "gender" : "Male" ,
+  "birthDate" : "1983-04-23",
+  "image" : "https://upload.wikimedia.org/wikipedia/commons/7/71/MoPodiumRio2016.png",
+  "club" : "http://w3c.github.io/opentrack-cg/examples/club/NEB.jsonld"
+},
+{
+  "@context": "http://w3c.github.io/opentrack-cg/contexts/opentrack.jsonld",
+  "@id" : "http://w3c.github.io/opentrack-cg/examples/club/NEB.jsonld",
+  "@type" : "Club",
+  "name": "Newham & Essex Beagles",
+  "alternateName": "BeaglesAC",
+  "url": "http://www.newhamandessexbeagles.co.uk/",
+  "image": "http://example.org/image.png",
+  "logo": "http://pbest.me/img/samples/NEB.jpg",
+  "telephone": "(+44) 020 7511 6463",
+  "faxNumber": "(+44) 020 7511 4477",
+  "email": "fakeemail@example.org",
+  "address": {
+    "name": "Terence McMillan Stadium - Newham Leisure Centre",
+    "streetAddress": "281 Prince Regent Lane",
+    "addressLocality": "London",
+    "postalCode": "E13 8SD",
+    "addressCountry": "countrycode:GBR"
+  },
+  "sponsor": { "name" : "Asics" } ,
+  "athlete": [
+    { "@id" : "http://w3c.github.io/opentrack-cg/examples/athlete/001Farah.jsonld" },
+    { "@id" : "http://w3c.github.io/opentrack-cg/examples/athlete/002Athlete2.jsonld" },
+    { "@id" : "http://w3c.github.io/opentrack-cg/examples/athlete/003Athlete3.jsonld" }
+  ],
+  "memberOf" : { "@id" : "http://w3c.github.io/opentrack-cg/examples/federation/GBR.jsonld" }
+}
+]  
+            </code></pre>
+        </div>
+        <div class="col s1">
+            <a class="btn-floating"><i id="reload-button" class="material-icons">input</i></a>
+        </div>        
+        <div class="col s4 list">
+          <ul class="collection">
+            {{ #each entity in entities}}
+              <li class="collection-item avatar">
+                {{ entity }}
+              </li>
+            {{ /each }}
+          </ul>
+        </div>
+      </div>  
+</template>  

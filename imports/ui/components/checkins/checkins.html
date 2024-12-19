@@ -1,0 +1,52 @@
+<template name="competitionCheckins">
+
+  <div class="container container-stopwatch-small">
+    
+  </div>
+  <div class="container checkpoints">
+      <div class="row">
+          <div class="col s7">
+            <div class="card-panel stopwatch-small white-text black" id="stopwatch">
+                {{> stopwatchCompetition deviceId=idDevice raceId=idRace }}
+            </div>
+          </div>
+          <div class="col s2 right-align">
+            &times;{{ checkpoint.laps }} laps<br> {{ numberCheckins }} checkins
+          </div>
+          <div class="col s3 right-align">
+            <a href="{{pathFor 'races.results' raceId=idRace checkpointId=idDevice }}" class="waves-effect waves-light btn-flat"><i class="material-icons right">open_in_new</i>Results</a>
+          </div>
+        </div>
+
+      {{ #if loading }}
+        {{> spinner }}
+      {{ else }}        
+          {{> reactiveTable 
+              class="table bordered striped" 
+              collection=checkins 
+              showFilter=true
+              settings=settings }}
+      {{ /if }}
+  </div>
+
+  <div id="modalConfirmRestart" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p>Do you want to restart the race?<br>All changes will be lost.</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-ok btn-flat red">OK, Restart</a>            
+          <a href="#!" class="modal-action modal-close btn-flat ">Cancel</a>
+      </div>    
+  </div>
+  <div id="modalConfirmStop" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p>Do you want to stop the race?<br>No more checkins will be registered.</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-ok btn-flat red">OK, Stop</a>            
+          <a href="#!" class="modal-action modal-close btn-flat ">Cancel</a>
+      </div>    
+  </div>      
+</template>

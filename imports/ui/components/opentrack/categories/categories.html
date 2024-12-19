@@ -1,0 +1,13 @@
+<template name="opentrackCategories">  
+    {{ #if loading }}
+        {{> spinner }}
+     {{ else }}        
+     <p class="right-align code"><a target='code' href="/data/categories" title="See code"><i class="material-icons">code</i></a></p>
+        {{> reactiveTable 
+            class="table bordered striped categoriesTable" 
+            collection=categories 
+            showNavigation='auto' 
+            showFilter=true
+            settings=settings }}
+    {{ /if }}
+</template>

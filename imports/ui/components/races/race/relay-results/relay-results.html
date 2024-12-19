@@ -1,0 +1,63 @@
+<template name="raceRelayResults">    
+
+  {{#let race=currentRace checkpoint=currentCheckpoint resultList=currentResultList}}
+
+  <div class="container">
+      <ul class="collapsible expandable collapsible-raceInfo">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">info</i>General Info</div>
+          <div class="collapsible-body">
+            {{ #if isAdminUser }}
+              ID: <strong>{{ race.identifier }}</strong><br>
+            {{ /if }}
+            <h5>{{ race.name }}</h5>
+            <div>{{ escapeHTML(race.description) }}</div>
+            <p>{{ distanceRace(race) }}</p>
+            <p>{{i18n 'races.view.location'}}: {{ race.location.name }}</p>
+            <p>{{ organizerText(race) }}</p>
+            {{ #if isAdminUser }}
+              <a href="{{ pathFor 'admin.races.edit' raceId=race._id }}" title="Edit race"><i class="material-icons">edit</i>{{i18n 'races.view.edit'}}</a>
+            {{ /if }}  
+          </div>
+        </li>
+      </ul>
+  </div>
+
+    <div class="row">
+        <div class="col s4">
+            <div class="card-panel stopwatch-small white-text black" id="stopwatch">
+                {{> stopwatchCompetition deviceId=checkpointId raceId=idRace }}
+            </div>
+        </div>
+        <div class="input-field col s4">
+            <select name="category" id="select-category">
+                {{ #each teamCategory in (teamCategories race) }}
+                    <option value="{{ teamCategory._id }}">{{ #if teamCategory.recognizingAuthorityCode }}[{{ teamCategory.recognizingAuthorityCode }}]{{/if}} {{ teamCategory.name }}</option>
+                {{ /each }}
+            </select>
+            <label>Current Category</label>
+        </div>
+        <div class="col s2 count-athletes">
+            <i>{{ maxLapNumberCompleted }} laps completed</i><br>
+            <i>{{ numberAthletesFinishedOverall }} finishers</i><br>
+            <i>{{ numberAthletesStarted }} starters</i>
+        </div>
+        <div class="col s2 count-athletes">
+            Status: {{ resultList.status }}<br>
+            <a href="#" title="Print" id="print-button"><i class="material-icons">print</i>Print</a>
+        </div>
+    </div>
+
+      {{> reactiveTable 
+        class="table bordered striped resultsTable" 
+        collection=resultEntries
+        showFilter=true
+        settings=settingsTable
+        currentRace=currentRace
+        currentCheckpoint=checkpoint
+        maxLapNumberCompleted=maxLapNumberCompleted
+        firstCompetitorTimestamp=firstCompetitorTimestamp }}
+
+  {{/let}}
+
+</template>

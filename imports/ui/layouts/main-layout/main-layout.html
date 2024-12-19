@@ -1,0 +1,16 @@
+<template name="appMainLayout"> 
+  <!-- Navigation -->
+  <nav class="nav-extended">
+    {{> Template.dynamic template=nav}}
+  </nav>
+  <!-- Body -->
+  {{> Template.dynamic template=main}}
+  <div id="modalContact" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        {{> contact }}
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close btn-flat ">{{ i18n 'button.close' }}</a>
+      </div>    
+  </div>
+</template>

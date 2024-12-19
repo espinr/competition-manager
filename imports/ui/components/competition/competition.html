@@ -1,0 +1,132 @@
+<template name="competitionMain">
+
+  <div class="container control-competition">
+    <div class="card-panel stopwatch white-text black" id="stopwatch">{{stopwatch}}</div>
+    <div class="stopwatch-btn" >
+      {{ #if showPlayButton }}
+        <a href="#" id="startCompetition-button" class="btn-floating btn-large waves-effect waves-light">
+          <i class="material-icons">play_arrow</i>
+        </a>
+      {{ /if }}
+      {{ #if showRestartButton }}      
+      <a href="#" id="restartCompetition-button" class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">repeat</i>
+      </a>
+      {{ /if }}
+      {{ #if showStopButton }}
+      <a href="#" id="finishCompetition-button" class="btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">stop</i>
+      </a>
+      {{ /if }}
+      </div>
+  </div>
+  <div class="container checkpoints">
+    <ul class="collapsible collapsible-checkpoints">
+      {{#each checkpoint in checkpoints}}
+      <li>
+        <div class="collapsible-header {{#if isCheckpointAlive @index }}white{{else}}red lighten-2{{/if}}">
+          <i class="material-icons">
+              {{#if isCheckpointAlive @index }}{{ #if checkpoint.onFinishLine }}flag{{else}}timer{{/if}}{{else}}timer_off{{/if}}
+          </i>
+          {{ checkpoint.deviceId }}
+          <span class="badge">&times;{{ checkpoint.laps }} laps</span>
+        </div>
+        <div class="collapsible-body">
+          <p>{{ checkpoint.name }} {{#if isCheckpointAlive @index }}<span class="green lighten-4">READY</span>{{else}}<span class="red lighten-2">OFFLINE</span>{{/if}} </p>
+          <p>Checkins: {{ numberCheckinsAt checkpoint.deviceId }}</p>
+          <form autocomplete="off">
+            <div class="row">
+              <div class="input-field col s4">
+                <input type="text" name="bib" id="{{checkpoint.deviceId}}">
+                  <label class="active">Bib Number</label>
+              </div>
+              <div class="input-field col s2">
+                <a href="#!" class="btn-flat small force-checkin-bib" data-checkpoint-id="{{checkpoint.deviceId}}"><i class="material-icons">send</i></a>
+              </div>
+            </div>
+          </form>
+          <table class="striped">
+            <thead>
+              <tr>
+                <th>Bib</th>
+                  <th>Athlete</th>                  
+                  <th>EPC</th>
+                  <th>Time</th>
+                  <th>Diff</th>
+                  <th>Laps</th>
+                  <th>Valid</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ #each checkin in checkins (checkpoint.deviceId) }}
+                <tr class="{{ #if checkin.valid }}{{ #if lapsExeeded checkpoint.laps checkin.laps }}red darken-3{{/if}}{{else}}brown lighten-4{{/if}}">
+                  <td>{{ checkin.bib }}</td>
+                  <td>{{ checkin.athlete }}</td>
+                  <td>{{ checkin.epc }}</td>
+                  <td>{{ checkin.time }}</td>
+                  <td>{{ checkin.difference }}</td>
+                  <td>{{ checkin.laps }}</td>
+                  <td><input type="checkbox" checked="{{checkin.valid}}" class="invalidate-checkin" name="{{checkin._id}}" id="{{checkin._id}}" ><label class="{{disableCheckbox(checkin)}}" for="{{checkin._id}}">&nbsp;</label></td>
+                </tr>
+              {{ /each }}
+            </tbody>
+          </table>
+          <p class="right-align">
+            <a href="{{pathFor 'races.checkins' raceId=idRace checkpointId=checkpoint.deviceId}}" target="checkins" class="waves-effect waves-yellow btn-flat">Checkins</a>
+            <a href="{{pathFor 'races.results' raceId=idRace checkpointId=checkpoint.deviceId}}" target="results" class="waves-effect waves-yellow btn-flat">Results</a>
+          </p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+  {{> competitionMap raceId=raceId currentRace=currentRace }}
+
+  
+  
+  <div id="modalJsonResults" class="modal">
+      <div class="modal-content">
+        <pre class="json">
+        </pre>
+      </div>
+  </div>    
+  
+  <div id="messagesModal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Checkins</h4>
+      <table>
+        <thead>
+          <tr><th>CheckpointID</th><th>EPC</th><th>bib#</th><th>timestamp</th></tr>
+        </thead>
+        <tbody>
+          {{ #each checkins }}
+            <tr><td>{{ checkpointId }}</td><td>{{ epc }}</td><td>{{ bibId }}</td><td>{{ timestamp }}</td></tr>
+          {{ /each }}
+        </tbody>
+      </table>
+    </div>
+  </div>  
+
+  <div id="modalConfirmRestart" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p>Do you want to restart the race?<br>All changes will be lost.</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-ok btn-flat red">OK, Restart</a>            
+          <a href="#!" class="modal-action modal-close btn-flat ">Cancel</a>
+      </div>    
+  </div>
+  <div id="modalConfirmStop" class="modal modal-fixed-footer">
+      <div class="modal-content">
+          <h4>Are you sure?</h4>
+          <p>Do you want to stop the race?<br>No more checkins will be registered.</p>
+      </div>
+      <div class="modal-footer">
+          <a href="#!" class="modal-action modal-ok btn-flat red">OK, Stop</a>            
+          <a href="#!" class="modal-action modal-close btn-flat ">Cancel</a>
+      </div>    
+  </div>      
+</template>

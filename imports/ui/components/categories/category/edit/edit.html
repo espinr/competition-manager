@@ -1,0 +1,71 @@
+<template name="editCategory">
+        <div class="row">
+        <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">       
+            {{#autoForm collection=categoriesCollection id="editCategoryForm" doc=currentDocument type="update" validation="blur" }}
+
+            <p><br> </p>
+
+            <div class="row">
+                    <div class="col s8">
+                        {{> afQuickField name='name' label='Label in English' }}
+                    </div>
+                    <div class="col s4">
+                        {{> afQuickField name='identifier' }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        {{> afQuickField name='description'}}
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col s4">
+                        {{> afQuickField name='requiredGender'}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s4">
+                        {{> afQuickField name='requiredMinAge'}}
+                    </div>
+                    <div class="col s4">
+                        {{> afQuickField name='requiredMaxAge'}}
+                    </div>
+                    <div class="col s4">
+                        {{> afQuickField name='referenceDate'}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        {{> afQuickField name='raceId' options=raceIds type=select }}
+                    </div>
+                    <div class="col s3">
+                        {{> afQuickField name='global'}}
+                    </div>
+                    <div class="col s3">
+                        {{> afQuickField name='autoAssigned'}}
+                    </div>
+                </div>
+                <div class="row">            
+                    <div class="col s12 buttons">
+                        <div class="form-group">
+                            <a href="#!" class="btn btn-secondary delete-category-button red">Delete</a>
+                            <button type="submit" class="btn btn-primary edit-category-button">Edit</button>
+                            <button type="reset" class="btn btn-default goBack-button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+    </div>
+    <div id="modalConfirmDeleteCategory" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Are you sure?</h4>
+            <p>Do you want to delete the category?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-ok btn-flat ">OK, Delete</a>            
+            <a href="#!" class="modal-action modal-close btn-flat ">Cancel</a>
+        </div>    
+    </div>           
+</template>

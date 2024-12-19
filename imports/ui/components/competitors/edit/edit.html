@@ -1,0 +1,38 @@
+<template name="editCompetitor">
+        
+        <div class="row">
+        <div class="col s12 m8 push-m2 push-l2 l8 z-depth-1">
+            {{#autoForm collection=competitorsCollection id="editCompetitorForm" doc=currentCompetitor 
+                type="update" validation="blur" previousBibId=previousBibId raceId=raceId }}
+                <p class="flow-text">Athlete<br><strong>{{ athleteName }}</strong></p>
+
+
+                <div class="row">
+                    <div class="col s12">
+                        {{> afQuickField name='bibId' type='select' options=bibValuesOptions }}
+                    </div>
+                </div>
+
+                {{> afQuickField name='idUser' type="hidden"}}
+                {{> afQuickField name='bib' type="hidden"}}
+                {{> afQuickField name='epcs' type="hidden"}}
+                {{> afQuickField name='idRace' value=raceId type="hidden" }}
+                
+                <div class="row categories-box">
+                    <div class="col s12">
+                        {{> afQuickField name='categories' options=categoryOptions type='select-checkbox-inline'}} 
+                    </div>
+                </div>
+                <div class="row">            
+                    <div class="col s12 buttons">
+                        <div class="form-group">
+                            <button class="btn red" id="delete-competitor-button">Delete</button>
+                            <button type="submit" class="btn btn-primary add-competitor-button">Update</button>
+                            <button type="reset" class="btn btn-default goBack-button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            {{/autoForm}}
+        </div>
+        </div>
+    </template>

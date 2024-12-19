@@ -1,0 +1,1243 @@
+@primary-color: #E32551;
+@pink-darken: #880e4f;
+
+@gold: #FFC219;
+@pale: #E5D599;
+@orange: #F07C19;
+@grey: #cccccc; 
+
+@blue-display: #00DFFC;
+
+@font-face {
+  font-family: 'Cutive Mono';
+  src: url('/fonts/CutiveMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Squada One';
+  src: url('/fonts/SquadaOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Teko';
+  src: url('/fonts/Teko-Medium.ttf') format('truetype');
+}
+
+@smartphones: ~"only screen and (max-width: 599px)";
+@tablets: ~"only screen and (min-width: 600px) and (max-width: 959px)";
+
+html, body { 
+  height:100%;
+  width:100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+address {
+  padding-left: 1rem;
+}
+
+nav .brand-logo {
+  margin-left: 10px;
+}
+
+nav .brand-logo.truncate {
+  overflow-x: hidden;
+  max-width: ~'calc(100% - 64px)';
+}
+
+nav .brand-logo img {
+  vertical-align: middle;
+  height: 50px;
+  max-height: 50px;
+}
+
+nav {
+  color: #fff;
+  background-color: @primary-color;
+}
+
+abbr {
+  cursor: help;
+}
+
+blockquote {
+  border-left: 5px solid @primary-color;
+}
+
+a {
+  color: @primary-color;
+}
+
+/* Login */
+
+.login-form {
+  #at-btn {
+    background-color: @primary-color;
+  }
+  .at-form {
+    background-color: white;
+    padding: 1rem;
+  }
+  .at-title {
+    text-align: center;
+  }
+  .header {
+    font-size: 150%;
+    text-transform: uppercase;
+  }
+  .form {
+    background-color: white;
+    padding: 1rem;
+  }
+}
+
+.login img {
+  max-width: 50%;
+  max-height: 100px; 
+}
+
+.nav-title {
+  margin-left: 10px;
+}
+
+/* Search bar */
+.input-field input[type=search] ~ .mdi-navigation-close,
+.input-field input[type=search] ~ .material-icons,
+nav .input-field label i {
+  color: @primary-color;
+}
+
+nav .input-field label.active i,
+.input-field input[type=search] {
+  color: @primary-color;
+  font-weight: lighter;
+  font-size: 200%;
+}
+
+.input-field input[type=search]::placeholder {
+  color: @primary-color;
+}
+
+.search-filter {
+  margin-bottom: 2px;
+}
+
+/* Spinner */
+.loading {
+  float: left;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 10000;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: space-around;
+  align-items: center;
+}
+
+.loading svg path,
+.loading svg rect{
+  fill: @primary-color;
+}
+
+.info-user-add {
+  width: 30rem;
+  margin: 0 auto;
+}
+
+/* + button */
+.checkpointsNav .fixed-action-btn {
+  z-index: 1000;
+}
+
+div.checkpointCheckbox {
+  margin-top: 1rem;  
+}
+
+
+/*** Forms ***/
+input[required], select[required] {
+  background-image: url('/img/icons/required.png'); 
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.thumbnail {
+  display: inline-block;
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #888;
+  background-size: cover;    
+}
+
+.gallery-photos {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+
+
+
+/* Maps in the tabs panel */
+
+#__blaze-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tab-panel {
+  width: 100%;
+  margin: 0;
+  max-height: 100%;
+  position: relative; 
+  height: ~'calc(100% - 64px - 48px - 56px - 2px)'; /* TODO recalcular para otros tamaños */
+  overflow-y: scroll;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+/* Infowindows of the checkpoint map */
+.card.infoWindow-checkpoint {
+  width: 16rem;
+  height: 16rem;
+  max-height: 16rem;
+  margin: 4px;
+}
+
+.card.infoWindow-checkpoint .card-content, .card.infoWindow-checkpoint .card-reveal {
+  padding: 5px;
+}
+
+.card-reveal .row {
+  margin-bottom: 0;
+}
+
+/* 
+  ==============
+  Profile forms
+  ==============
+*/
+form .privacy-policy {
+  color: #9e9e9e;
+  text-align: justify;
+}
+
+/* 
+  ========================
+  Header of form editions
+  ========================
+*/
+nav.editionFormHeader {
+  margin-bottom: 2px;
+}
+
+
+.mapCompetition-container {
+  margin-top: -29px;
+  height: ~'calc(100% - 65px)'; 
+}
+
+/* 
+  ==============
+  New Checkpoint forms
+  ==============
+*/
+
+#picture-preview i {
+  color: #ffffff;
+}
+
+/* Municipality */
+div.municipalityField .input-field {
+  margin-top: -2rem;
+}
+
+/* Errors */
+form .red-text {
+  margin-top: -1rem;
+  margin-left: 3rem;
+  font-size: smaller;
+}
+.row-form-map {
+  margin-top: -20px;
+}
+
+.icon-group {
+  margin-top: 1.5rem;
+}
+
+.row-form-map #newCheckpointMap-container, .row-form-map #editCheckpointMap-container {
+  height: 20rem;
+}
+
+.row-form-map {
+  padding-left: 0;
+  position: relative;
+}
+
+.col-form-map {
+  position: relative;
+}
+
+.row-form-map #init-message-map {
+  position: absolute;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  padding: 0 0.75rem;
+  text-align: center;
+  width: ~'calc(100% - 1.5rem)';
+  height: 20rem;
+  left: 0.75rem;
+  top: 0;
+  z-index: 99;   
+  color: #ffffff;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.switch-row {
+  margin-left: 0.7rem;
+}
+
+.text-message-map {
+  width: auto;
+  font-family: 'Roboto','sans-serif';
+  font-size: 120%;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+#newCheckpointMap-container .btn-floating, #editCheckpointMap-container .btn-floating {
+  position: absolute;
+  z-index: 50;
+  top: 10px;
+  left: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  margin: 0 4px;
+}
+
+div.picture.placeholder {
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  background: #8a8a8a;
+}
+
+div.picture {
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background-size: cover;    
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Login Buttons */
+div#login-buttons, div#login-buttons div.login-link-and-dropdown-list {
+  display: inline-block;
+  line-height: 64px; /* Ojo con otras resoluciones */
+}
+
+div#login-buttons #login-dropdown-list a.login-close-text {
+  font-size: 0;
+}
+
+div#login-buttons #login-dropdown-list a.login-close-text:after {
+  font-size: 20px;
+  display: inline-block; 
+  content: url('/img/icons/ic_close_black_24px.svg');
+}
+
+// Like z-depth-4
+div#login-buttons .accounts-dialog {
+  border-radius: 0;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .4);
+}
+
+div#login-buttons .login-button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #26a69a;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+nav .goBack-button i {
+  color: #ffffff;
+  padding: 0 1rem;
+}
+
+
+/* Accounts */
+.accounts-dialog {
+  margin: 0 1rem 0 1rem;
+}
+
+.userManagement-container {
+  margin-top: 1rem;
+}
+
+#login-buttons a {
+  text-decoration: none;
+  display: block;
+}
+
+div#login-buttons, div#login-buttons div.login-link-and-dropdown-list {
+  display: inline-block;
+  line-height: 64px; /* Ojo con otras resoluciones */
+}
+
+
+/* Dashboard startup */
+.homeDashboard {
+  width: 100%;
+  height: ~'calc(100% - 5rem)';
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.homeDashboard .card {
+  width: 35rem;
+}
+.homeDashboard .card .card-image img {
+  max-width: 100%;
+  width: auto;
+}
+.homeDashboard .card .card-title {
+  margin-top: 0;
+}
+
+.card-title.activator {
+  .title {
+  }
+}
+
+
+.at-form {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.at-form .at-pwd-form,
+.at-form .at-title,
+.at-form .at-signup-link,
+.at-form .at-terms-link,
+.at-form .at-signin-link {
+  margin: 0 24px;
+}
+
+/* Admin */
+/* User accounts */
+
+#updaterolesbtn {
+  display: none;
+}
+
+.error-container .logo {
+  text-align: center;
+  position: absolute;
+  top: 5px;
+
+
+  img {
+    width: 300px;
+    max-width: 50%;
+  }
+}
+
+.error-container header {
+  height: 5rem;
+  width: 100%;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.error-container h1 {
+}
+
+.error-container .error-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+} 
+
+/* User admin */
+.adminAccounts-container {    
+}
+
+.error-container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('/img/backgrounds/404.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;   
+}
+  
+/* Admin Users table */
+.usersTable form label {
+  font-size: 0;
+  padding: 0;
+}
+.usersTable form div.input {
+  display: inline-block;
+  width: 2.3rem;
+}
+
+.usersTable thead th:last-child {
+  width: ~'calc(6 * 3rem)';
+}
+
+.infoWindow-ranking caption {
+  text-transform: uppercase;
+  color: @primary-color;
+}
+.infoWindow-ranking tbody tr td {
+  padding: 5px;
+  margin: 0;
+}
+.infoWindow-ranking {
+  padding-left: 1em;
+}
+.infoWindow-ranking tr td i.up {
+  color: #4caf50;
+}
+.infoWindow-ranking tr td i.down {
+  color: red;
+}
+.infoWindow-ranking tbody tr.break {
+  background-color: #fce4ec;
+}
+.infoWindow-ranking {
+  width: 15rem;  
+}
+
+.infoWindow-ranking.finish {
+  background-image: url('/img/checked.png');
+  background-repeat: repeat;
+}
+
+#downloadResults-button {
+  background-color: #000000;
+}
+
+li.resultLive {
+  height: 1em;
+}
+
+
+.assign-bibs-button {
+  top: 5em;
+
+}
+
+.reactive-table-navigation {
+  padding: 0 5px;
+}
+
+textarea.materialize-textarea.no-resize {
+  height: 2rem !important;
+  resize: none !important;
+  overflow: auto;
+}
+
+#modalConfirmDeleteRace, #modalConfirmDeletePicture, #modalConfirmRestart, #modalConfirmStop, #modalConfirmDeleteCategory, #modalContact {
+  height: 15em;
+}
+
+
+.control-competition {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.collapsible-checkpoints {
+  margin-top: 2rem;
+  background-color: rgba(255,255,255,0.9);
+}
+
+
+.stopwatch {
+  width: 5.6em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  color: black;
+  font-weight: bold;
+  margin: auto;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 400%;
+}
+
+.stopwatch-small {
+  width: 5.6em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 200%;
+}
+
+.container-stopwatch-small {
+  margin-top: 5px;
+}
+
+.stopwatch-btn {
+  align-self: center;
+  margin-right: 10px;
+}
+
+#finishCompetition-button {
+  background-color: #263238;
+}
+
+#startCompetition-button {
+  background-color: #c0ca33;
+}
+
+#restartCompetition-button {
+  background-color: @primary-color;
+}
+
+.stopwatch-finished {
+  /*animation: blinker 0.5s linear infinite;*/
+} 
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#mapCompetition, #raceViewMap {
+  position: fixed;
+  z-index: -100;
+  top: 0;
+}
+
+.nested-table thead {
+  display: none;
+}
+
+table.nested-table, .nested-table td, .nested-table tr, .nested-table th  {
+  padding: 0;
+  margin: 0;
+}
+
+.collapsible-raceInfo {
+  background-color: rgba(255,255,255,0.9);
+}
+
+/*
+div.row.categories-box .af-checkbox-group {
+  max-height: 10rem;
+  height: 10rem;
+  overflow-y: auto;
+  background-color: rgba(200,200,200, 0.2);
+}
+*/
+
+div.count-athletes {
+  margin-top: 5px;
+}
+
+.performance {
+  text-align: right;
+}
+
+.rowIcon {
+  width: 2rem;
+  max-width: 2rem;
+  text-align: center;
+}
+
+.emoji {
+  font-size: 120%;
+}
+
+tr.pending-result {
+  color: #aaaaaa;
+}
+
+/* Result display */
+table.displayResultsTable {
+  font-family: 'Teko';
+  font-size: 200%;
+  border: 0;
+
+  thead, thead tr, tbody, tbody tr, tbody tr td {
+    border: 0;
+  }
+  tbody tr {
+    //background-color: @primary-color;
+    background-color: @blue-display;
+  }
+
+  tbody > tr:nth-child(odd) {
+    background-color: rgba(0,0,0,0.7);
+  }
+
+  tbody tr.first td {
+    padding-bottom: 5px;
+  }
+
+  tbody tr.first {
+    border-bottom: 10px solid @gold;
+  }
+
+  tbody tr.first td {
+    color: @gold;
+  }
+  tbody tr.second td {
+    color: @grey;
+  }
+  tbody tr.third td {
+    color: @orange;
+  }
+
+  td {
+    padding: 1px 5px 1px 5px;
+    height: 65px;
+    line-height: 65px;
+    color: white;
+  }
+
+  td.flag {
+    height: 65px;
+    max-height: 65px;
+    line-height: 65px;
+  }
+
+  td.flag img, td.flag svg {
+    width: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
+    vertical-align: middle;
+  }
+
+  td.flag .laps {
+    width: 3rem;
+    min-width: 3rem;
+    max-width: 3rem;
+  }
+
+  td.rank {
+    width: 4rem;
+    min-width: 4rem;
+    max-width: 4rem;
+    margin-left: 4rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  td.name {
+    width: 20rem;
+    min-width: 25rem;
+    max-width: 25rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+    .lastName {
+      text-transform: uppercase;
+    }
+  }  
+
+  td.abbr-team {
+    width: 4rem;
+    max-width: 4rem;
+    min-width: 4rem;
+  }
+
+  .blink {
+    animation: blinker 0.5s linear infinite;
+  }
+}
+
+div.container.displayResults {
+  margin-top: 1rem;
+  width: 80%;
+  
+  .row {
+    margin-bottom: 0;
+  }
+
+  .title {
+    background-color: rgba(0,0,0,0.7);
+    font-family: 'Teko';
+    font-size: 200%;
+    //color: @primary-color;  
+    color: @blue-display;
+    line-height: 110%;
+  }
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  .stopwatch-small {
+    margin-top: 1rem;
+  }
+
+  .info {
+    margin-top: 2rem;
+  }
+
+  .latestResult {
+    animation: blinker 0.5s linear infinite;
+  }
+}
+
+.imageBackground {
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  z-index: -1;
+}
+
+.imageBackground.display {
+  background: url('/img/backgrounds/stopwatch.jpg');
+}
+.imageBackground.login {
+  background: url('/img/backgrounds/stopwatch.jpg');  
+}  
+
+.twitter-typeahead {
+  display: block !important;
+  width: 100% !important;
+}
+
+@media @smartphones, @tablets {
+  table.displayResultsTable {
+    font-family: 'Teko';
+    font-size: 150%;
+    border: 0;
+  
+    thead, thead tr, tbody, tbody tr, tbody tr td {
+      border: 0;
+    }
+    tbody tr {
+      //background-color: @primary-color;
+      background-color: @blue-display;
+    }
+  
+    tbody > tr:nth-child(odd) {
+      background-color: rgba(0,0,0,0.7);
+    }
+  
+    tbody tr.first td {
+      padding-bottom: 5px;
+    }
+  
+    tbody tr.first {
+      border-bottom: 2px solid @gold;
+    }
+  
+    tbody tr.first td {
+      color: @gold;
+    }
+    tbody tr.second td {
+      color: @grey;
+    }
+    tbody tr.third td {
+      color: @orange;
+    }
+  
+    td {
+      padding: 1px 1px 1px 1px;
+      height: 32px;
+      line-height: 32px;
+      color: white;
+    }
+  
+    td.flag {
+      height: 32px;
+      max-height: 32px;
+      line-height: 32px;
+    }
+  
+    td.flag img, td.flag svg {
+      width: 2rem;
+      min-width: 2rem;
+      max-width: 2rem;
+      vertical-align: middle;
+    }
+  
+    td.flag .laps {
+      width: 2rem;
+      min-width: 2rem;
+      max-width: 2rem;
+    }
+  
+    td.rank {
+      width: 2rem;
+      min-width: 2rem;
+      max-width: 2rem;
+      margin-left: 2rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+  
+    td.name {
+      width: 7rem;
+      min-width: 7rem;
+      max-width: 7rem;
+      vertical-align: middle;
+      text-transform: capitalize;
+      .lastName {
+        text-transform: uppercase;
+      }
+    }  
+  }
+  
+  div.container.displayResults {
+    margin-top: 0;
+    width: 100%;
+    
+    .row {
+      margin-bottom: 0;
+    }
+  
+    .title {
+      background-color: rgba(0,0,0,0.7);
+      font-family: 'Teko';
+      font-size: 100%;
+      //color: @primary-color;  
+      color: @blue-display;
+      line-height: 100%;
+      margin: 0;
+    }
+  
+    h1 {
+      text-transform: uppercase;
+      font-size: 200%;
+    }
+  
+    .stopwatch-small {
+      margin-top: 1.5rem;
+    }
+    
+    .info {
+      margin-top: 2.1rem;
+    }
+  }
+  
+}  
+
+/* CLUBS */
+#logo-preview {
+  margin: 5px 0 5px 0;
+  display: flex;
+  flex-flow: column wrap;
+  background-size: cover;    
+  max-width: 125px;
+  max-height: 75px;
+  min-width: 125px;
+  min-height: 75px;
+  width: 100%;
+  height: 100%;
+}
+
+.reactive-table td.description, .reactive-table th.description {
+  max-width: 20rem;
+}
+
+.reactive-table img.flag, .reactive-table td.flag svg {
+  width: 50px;
+  height: 33px;
+}
+
+.reactive-table td.flag, .reactive-table th.flag {
+  text-align: center;
+}
+
+table .raceIdentifier {
+  padding-left: 1rem;
+}
+table .raceOptions {
+  min-width: 18rem;
+  width: 18rem;
+  text-align: center;
+}
+
+.reactive-table .features {
+  max-width: 3rem;
+}
+
+.add-button {
+  background-color: @primary-color;
+}
+
+.btn-large.primary, .btn-primary, .btn-default, .btn-floating {
+  background-color: @primary-color;
+}
+
+/* Cards */
+.cards-races {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  margin: 0 0.5rem;
+
+  .card.large {
+    max-width: 450px;
+    margin: 1rem;
+    .card-image {
+    }
+  }
+  
+}
+
+
+
+/* Testing the replay feature */
+#anime-demo {
+  position: relative;
+}
+
+button {
+  background: orange;
+  color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: 'Lato';
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:hover {
+  background: blue;
+}
+
+.box, .square {
+  pointer-events: none;
+  background-color: black;
+  margin: 4px;
+  display: inline-block;
+  top: -10px;
+  left: -10px;
+  opacity: 0.6;
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.color-codes {
+  position: absolute;
+  top: 150px;
+  margin-left: 1rem;
+  float: right;
+  right: 15%;
+}
+
+.box {
+  position: relative;
+  top: 8px;
+}
+
+.square {
+  position: absolute;
+}
+
+.square.blue, .box.blue {
+  background: blue;
+}
+
+.square.red, .box.red {
+  background: red;
+}
+
+.square.red, .box.cyan {
+  background: cyan;
+}
+
+.square.red, .box.grey {
+  background: grey;
+}
+
+.square.orange, .box.orange {
+  background: orange;
+}
+
+.square.green, .box.green {
+  background: green;
+}
+
+.square.brown, .box.brown {
+  background: brown;
+}
+
+.square.purple, .box.purple {
+  background: purple;
+}
+
+.square.yellow, .box.yellow {
+  background: yellow;
+}
+
+.square.white, .box.white {
+  background: white;
+}
+
+.square.pink, .box.pink {
+  background: pink;
+}
+
+.square.teal, .box.teal {
+  background: teal;
+}
+
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#anime-demo svg {
+}
+
+/* Uploader */
+.uploader {
+  margin-top: 0.5rem;
+  width:100%;
+
+  .editor {
+    width: 100%;
+    height: ~'calc(100vh - 100px)';
+    min-height: ~'calc(100vh - 100px)';
+    max-height: ~'calc(100vh - 100px)';
+    resize: none;
+  }
+}
+
+.secondary-content {
+  color: @pink-darken;
+}
+
+td.opentrack {  
+  color: @pink-darken;
+}
+
+/* Cards */
+.cards-opentrack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  margin: 0 0.5rem;
+}
+.cards-opentrack .card {
+  max-width: 17rem;
+  max-height: 17rem;
+  margin: 1rem;
+}
+
+.cards-opentrack .card-image {
+  height: 10rem;
+}
+
+table td.description {
+  max-width: 25rem;
+}
+
+/* Registration */
+#modalNewUserToJoin {
+  width: 80%;
+  top: 5%;
+  max-height: 85%;
+  height: 85%;
+}
+
+div.modal-overlay.privacy-dialog-open {
+  z-index: 1004 !important;
+}
+
+table .name {
+  text-transform: uppercase;
+}
