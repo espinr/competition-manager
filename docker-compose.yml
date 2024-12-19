@@ -13,7 +13,7 @@ services:
     environment:
       - MAIL_URL=smtp://smtp:25
       - ROOT_URL=http://espinr.ddns.net
-      - METEOR_SETTINGS='{ "mqtt_broker": "mqtt://espinr.ddns.net", "mqtt_port": 1883, "openTrackBaseUri": "http://purl.org/athletics" }'
+      - METEOR_SETTINGS= '{"mqtt_broker":"mqtt://espinr.ddns.net","mqtt_port":1883,"openTrackBaseUri":"http://purl.org/athletics"}'
       - MONGO_URL=mongodb://mongo:27017/meteor
     container_name: pbest_app
 
